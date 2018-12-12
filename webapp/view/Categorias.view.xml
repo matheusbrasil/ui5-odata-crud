@@ -1,0 +1,16 @@
+<mvc:View controllerName="ovly.odata.crud.controller.Categorias" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	xmlns:semantic="sap.m.semantic" xmlns="sap.m">
+	<semantic:MasterPage title="{i18n>categorias_title}">
+		<semantic:content>
+			<List mode="SingleSelectMaster" itemPress="onItemPress" items="{path: '/Categories' }">
+				<items>
+					<StandardListItem detailPress="onEdit" type="DetailAndActive"
+						title="{path: 'ID', type: 'sap.ui.model.odata.type.Int32', formatOptions: { pattern: '0000'} } - {path: 'Name', formatter: '.formatter.upperCase'}"/>
+				</items>
+			</List>
+		</semantic:content>
+		<semantic:addAction>
+			<semantic:AddAction press="onAdd"/>
+		</semantic:addAction>
+	</semantic:MasterPage>
+</mvc:View>

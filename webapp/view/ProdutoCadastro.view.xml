@@ -1,0 +1,33 @@
+<mvc:View controllerName="ovly.odata.crud.controller.ProdutoCadastro" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:semantic="sap.m.semantic" xmlns="sap.m">
+	<semantic:DetailPage title="{i18n>produto_cadastro_title}" navButtonPress="onNavBack" showNavButton="{device>/system/phone}">
+		<semantic:content>
+			<f:SimpleForm 
+				labelSpanM="3"
+				emptySpanM="2"
+				layout="ResponsiveGridLayout"
+				>
+				<f:content>
+					<Label text="{i18n>produto_cadastro_id}"/>
+					<Input value="{ID}"/>
+					<Label text="{i18n>produto_cadastro_name}"/>
+					<Input value="{Name}"/>
+					<Label text="{i18n>produto_cadastro_description}"/>
+					<TextArea value="{Description}"/>
+					<!--<Label text="{i18n>produto_cadastro_release_date}"/>-->
+					<!--<DatePicker value="{ReleaseDate}"/>-->
+					<Label text="{i18n>produto_cadastro_rating}"/>
+					<RatingIndicator value="{Rating}"/>
+					<!--<Label text="{i18n>produto_cadastro_price}"/>-->
+					<!--<StepInput value="{Price}"/>-->
+				</f:content>
+			</f:SimpleForm>
+		</semantic:content>
+		<semantic:saveAction>
+			<semantic:SaveAction press="onSave"/>
+		</semantic:saveAction>
+		<semantic:cancelAction>
+			<semantic:CancelAction press="onCancel"/>
+		</semantic:cancelAction>
+	</semantic:DetailPage>
+</mvc:View>

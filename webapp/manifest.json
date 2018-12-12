@@ -1,0 +1,149 @@
+{
+	"_version": "1.9.0",
+	"sap.app": {
+		"id": "ovly.odata.crud",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "/ODATA_SAMPLE/V2/(S(putAnyRandomStringHere))/OData/OData.svc/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://detail-view",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "ovly.odata.crud.view.App",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.42.0",
+			"libs": {
+				"sap.m": {},
+				"sap.ui.core": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "ovly.odata.crud.i18n.i18n"
+				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"preload": true,
+				"settings": {
+					"disableHeadRequestForToken": true,
+					"defaultBindingMode": "OneWay"
+				}
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "ovly.odata.crud.view",
+				"controlId": "mainContainer",
+				"controlAggregation": "detailPages",
+				"bypassed": {
+					"target": [
+						"empty",
+						"categorias"
+					]
+				}
+			},
+			"routes": [{
+				"pattern": "",
+				"name": "default",
+				"target": [
+					"empty",
+					"categorias"
+				]
+			}, {
+				"name": "categoriaDetalhe",
+				"pattern": "Categoria/{idCategoria}",
+				"target": [
+					"categorias",
+					"categoriaDetalhe"
+				]
+			}, {
+				"name": "categoriaCadastroNova",
+				"pattern": "NovaCategoria",
+				"target": [
+					"categorias",
+					"CategoriaCadastro"
+				]
+			}, {
+				"name": "categoriaCadastroEditar",
+				"pattern": "Categoria/{idCategoria}/editar",
+				"target": [
+					"categorias",
+					"CategoriaCadastro"
+				]
+			}, {
+				"name": "produtoCadastro",
+				"pattern": "Categoria/{idCategoria}/adicionarProduto",
+				"target": [
+					"categorias",
+					"ProdutoCadastro"
+				]
+			}],
+			"targets": {
+				"categorias": {
+					"viewName": "Categorias",
+					"controlAggregation": "masterPages",
+					"viewLevel": 1
+				},
+				"categoriaDetalhe": {
+					"viewName": "CategoriaDetalhe",
+					"viewLevel": 2
+				},
+				"CategoriaCadastro": {
+					"viewName": "CategoriaCadastro",
+					"viewLevel": 2
+				},
+				"ProdutoCadastro": {
+					"viewName": "ProdutoCadastro",
+					"viewLevel": 3
+				},
+				"empty": {
+					"viewName": "Empty"
+				}
+			}
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
+	}
+}

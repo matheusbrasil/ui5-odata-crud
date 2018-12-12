@@ -1,0 +1,48 @@
+<mvc:View controllerName="ovly.odata.crud.controller.CategoriaDetalhe" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic"
+	xmlns="sap.m">
+	<semantic:DetailPage title="{i18n>categoria_detalhe_title}" navButtonPress="onNavBack" showNavButton="{device>/system/phone}">
+		<semantic:content>
+			<ObjectHeader intro="{ID}" title="{Name}"/>
+			<Table noDataText="Nenhum produto encontrado" items="{path: 'Products'}">
+				<columns>
+					<Column>
+						<header>
+							<Label text="{i18n>categoria_detalhe_column_title_product}"/>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Label text="{i18n>categoria_detalhe_column_title_release_date}"/>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Label text="{i18n>categoria_detalhe_column_title_release_rating}"/>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Label text="{i18n>categoria_detalhe_column_title_release_price}"/>
+						</header>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<ObjectIdentifier title="{ID}" text="{Name}"/>
+							<Text text="{path: 'ReleaseDate', type: 'sap.ui.model.type.DateTime', formatOptions: { format: 'yMMMMd', UTC: true } }"/>
+							<RatingIndicator value="{Rating}"/>
+							<ObjectNumber number="{Price}" state="{ path: 'Price', formatter: '.formatter.priceToState' }" unit="USD"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</semantic:content>
+		<semantic:addAction>
+			<semantic:AddAction press="onAdd"/>
+		</semantic:addAction>
+		<semantic:deleteAction>
+			<semantic:DeleteAction press="onDelete"/>
+		</semantic:deleteAction>
+	</semantic:DetailPage>
+</mvc:View>

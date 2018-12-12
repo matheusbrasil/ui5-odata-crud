@@ -33,18 +33,18 @@ sap.ui.define([
 			var sIdCategoria = oArguments.idCategoria;
 			this._idCategoria = sIdCategoria;
 
-			var oPromiseMetadataLoaded = this.getModel().metadataLoaded();
-			oPromiseMetadataLoaded.then(function () {
+			// var oPromiseMetadataLoaded = this.getModel().metadataLoaded();
+			// oPromiseMetadataLoaded.then(function () {
 
-				var sKey = this.getModel().createKey("Categories", {
-					ID: sIdCategoria
-				});
+			// 	var sKey = this.getModel().createKey("Categories", {
+			// 		ID: sIdCategoria
+			// 	});
 
-				this.getView().bindElement({
-					path: "/" + sKey
-				});
+			// 	this.getView().bindElement({
+			// 		path: "/" + sKey
+			// 	});
 
-			}.bind(this));
+			// }.bind(this));
 		}
 
 	});

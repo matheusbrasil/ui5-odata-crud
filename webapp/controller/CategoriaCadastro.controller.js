@@ -31,22 +31,22 @@ sap.ui.define([
 			var oParameters = oEvent.getParameters();
 			var oArguments = oParameters.arguments;
 			var sIdCategoria = oArguments.idCategoria;
-			this._idCategoria = sIdCategoria;
+			// this._idCategoria = sIdCategoria;
 
 			this._oViewModel.setProperty("/editMode", true);
 			this._clearForm();
 
-			this.getModel().metadataLoaded().then(function () {
+			// this.getModel().metadataLoaded().then(function () {
 
-				var sKey = this.getModel().createKey("Categories", {
-					ID: sIdCategoria
-				});
+			// 	var sKey = this.getModel().createKey("Categories", {
+			// 		ID: sIdCategoria
+			// 	});
 
-				this.getView().bindElement({
-					path: "/" + sKey
-				});
+			// 	this.getView().bindElement({
+			// 		path: "/" + sKey
+			// 	});
 
-			}.bind(this));
+			// }.bind(this));
 		},
 
 		onSave: function (oEvent) {
@@ -87,10 +87,10 @@ sap.ui.define([
 
 			var oCategoriaNova = this._getCategoriaUsingIds();
 
-			this.getModel().create(
-				"/Categories",
-				oCategoriaNova,
-				mParameters);
+			// this.getModel().create(
+			// 	"/Categories",
+			// 	oCategoriaNova,
+			// 	mParameters);
 		},
 
 		_update: function () {
@@ -120,10 +120,10 @@ sap.ui.define([
 
 				var oCategoria = this._getCategoriaUsingIds();
 
-				this.getModel().update(
-					"/" + sPath,
-					oCategoria,
-					mParameters);
+				// this.getModel().update(
+				// 	"/" + sPath,
+				// 	oCategoria,
+				// 	mParameters);
 
 			}.bind(this));
 		},

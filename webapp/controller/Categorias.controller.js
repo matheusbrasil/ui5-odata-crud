@@ -15,12 +15,12 @@ sap.ui.define([
 
 		onItemPress: function (oEvent) {
 			var oListItem = oEvent.getParameters().listItem;
-			var oContext = oListItem.getBindingContext();
-			var oCategory = oContext.getObject();
+			// var oContext = oListItem.getBindingContext();
+			// var oCategory = oContext.getObject();
 
-			this.getRouter().navTo("categoriaDetalhe", {
-				idCategoria: oCategory.ID
-			});
+			// this.getRouter().navTo("categoriaDetalhe", {
+			// 	idCategoria: oCategory.ID
+			// });
 		},
 
 		onAdd: function (oEvent) {
@@ -28,12 +28,12 @@ sap.ui.define([
 		},
 
 		onEdit: function (oEvent) {
-			var oContext = oEvent.getSource().getBindingContext();
-			var sIdCategoria = oContext.getProperty("ID");
+			// var oContext = oEvent.getSource().getBindingContext();
+			// var sIdCategoria = oContext.getProperty("ID");
 			
-			this.getRouter().navTo("categoriaCadastroEditar", {
-				idCategoria: sIdCategoria
-			});
+			// this.getRouter().navTo("categoriaCadastroEditar", {
+			// 	idCategoria: sIdCategoria
+			// });
 		}
 
 	});

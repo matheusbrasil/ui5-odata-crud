@@ -27,11 +27,11 @@ sap.ui.define([
 			var oPromiseMetadataLoaded = this.getModel().metadataLoaded();
 			oPromiseMetadataLoaded.then(function () {
 
-				this._oContext = oModel.createEntry("/Products", {
-					Category: sIdCategoria
-				});
+				// this._oContext = oModel.createEntry("/Products", {
+				// 	Category: sIdCategoria
+				// });
 
-				this.getView().setBindingContext(this._oContext);
+				// this.getView().setBindingContext(this._oContext);
 
 			}.bind(this));
 		},
@@ -49,14 +49,14 @@ sap.ui.define([
 				MessageBox.error("Erro na criação da categoria");
 			}
 
-			this.getModel().submitChanges({
-				success: onSuccess.bind(this),
-				error: onError.bind(this)
-			});
+			// this.getModel().submitChanges({
+			// 	success: onSuccess.bind(this),
+			// 	error: onError.bind(this)
+			// });
 		},
 
 		onCancel: function (oEvent) {
-			this.getModel().deleteCreatedEntry(this._oContext);
+			// this.getModel().deleteCreatedEntry(this._oContext);
 			this._back();
 		},
 

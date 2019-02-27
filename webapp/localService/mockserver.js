@@ -1,18 +1,18 @@
 sap.ui.define([
 	"sap/ui/core/util/MockServer"
-], function(MockServer) {
+], function (MockServer) {
 	"use strict";
 
 	return {
 
-		init: function() {
+		init: function () {
 
 			var oMockServer = new MockServer({
-				// rootUri : 
+				rootUri: "/ODATA_SAMPLE/V2/(S(matheus))/OData/OData.svc/"
 			});
 
-			oMockServer.simulate("", {
-				sMockdataBaseUrl: "",
+			oMockServer.simulate("localService/metadata.xml", {
+				sMockdataBaseUrl: "localService/mockdata",
 				bGenerateMissingMockData: true
 			});
 
@@ -20,7 +20,7 @@ sap.ui.define([
 
 			jQuery.sap.log.info("Running the app with mock data");
 		}
-		
+
 	};
 
 });

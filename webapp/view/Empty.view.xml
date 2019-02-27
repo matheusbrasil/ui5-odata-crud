@@ -1,5 +1,42 @@
-<mvc:View displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:semantic="sap.m.semantic" xmlns="sap.m">
+<mvc:View controllerName="ovly.odata.crud.controller.Empty" displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	xmlns:semantic="sap.m.semantic" xmlns="sap.m">
 	<semantic:SemanticPage showFooter="false">
-		
+		<semantic:content>
+			<StepInput value="3" change="onChange"/>
+			<Table noDataText="Nenhum produto encontrado" items="{funcao>/results}">
+				<columns>
+					<Column>
+						<header>
+							<Label text="{i18n>categoria_detalhe_column_title_product}"/>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Label text="{i18n>categoria_detalhe_column_title_release_date}"/>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Label text="{i18n>categoria_detalhe_column_title_release_rating}"/>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Label text="{i18n>categoria_detalhe_column_title_release_price}"/>
+						</header>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<ObjectIdentifier title="{funcao>ID}" text="{funcao>Name}"/>
+							<Text text="{model: 'funcao', path: 'ReleaseDate', type: 'sap.ui.model.type.DateTime', formatOptions: { format: 'yMMMMd', UTC: true } }"/>
+							<RatingIndicator value="{funcao>Rating}"/>
+							<ObjectNumber number="{funcao>Price}" state="{ model: 'funcao', path: 'Price', formatter: '.formatter.priceToState' }" unit="USD"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</semantic:content>
 	</semantic:SemanticPage>
 </mvc:View>

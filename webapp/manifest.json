@@ -11,7 +11,7 @@
 		},
 		"dataSources": {
 			"mainService": {
-				"uri": "/ODATA_SAMPLE/V2/(S(putAnyRandomStringHere))/OData/OData.svc/",
+				"uri": "/ODATA_SAMPLE/V2/(S(matheus))/OData/OData.svc/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
@@ -64,7 +64,8 @@
 				"preload": true,
 				"settings": {
 					"disableHeadRequestForToken": true,
-					"defaultBindingMode": "OneWay"
+					"defaultBindingMode": "TwoWay",
+					"useBtach": true
 				}
 			}
 		},

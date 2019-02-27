@@ -2,16 +2,12 @@
 	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:semantic="sap.m.semantic" xmlns="sap.m">
 	<semantic:DetailPage title="{i18n>categoria_cadastro_title}" navButtonPress="onNavBack" showNavButton="{device>/system/phone}">
 		<semantic:content>
-			<f:SimpleForm 
-				labelSpanM="3"
-				emptySpanM="2"
-				layout="ResponsiveGridLayout"
-				>
+			<f:SimpleForm labelSpanM="3" emptySpanM="2" layout="ResponsiveGridLayout">
 				<f:content>
 					<Label text="{i18n>categoria_cadastro_id}"/>
-					<Input id="id" value="{ID}"/>
+					<Input id="id" value="{ID}" enabled="{= ${view>/editMode} ? false : true }"/>
 					<Label text="{i18n>categoria_cadastro_name}"/>
-					<Input id="name" value="{Name}" />
+					<Input id="name" value="{Name}"/>
 				</f:content>
 			</f:SimpleForm>
 		</semantic:content>

@@ -24,7 +24,18 @@ sap.ui.define([
 		},
 
 		onDelete: function (oEvent) {
-
+			// @type sap.ui.model.odata.v2.ODataModel
+			var oModel = this.getModel();
+			var sPath = this.getView().getBindingContext().getPath();
+			var mParameters = {
+				success: function (oResult) {
+					this.getRouter().navTo("default");
+				}.bind(this),
+				error: function (oError) {
+					console.log('erro na deleção');
+				}
+			}
+			oModel.remove(sPath, mParameters);
 		},
 
 		onPatternMatched: function (oEvent) {
@@ -33,18 +44,18 @@ sap.ui.define([
 			var sIdCategoria = oArguments.idCategoria;
 			this._idCategoria = sIdCategoria;
 
-			// var oPromiseMetadataLoaded = this.getModel().metadataLoaded();
-			// oPromiseMetadataLoaded.then(function () {
+			var oPromiseMetadataLoaded = this.getModel().metadataLoaded();
+			oPromiseMetadataLoaded.then(function () {
 
-			// 	var sKey = this.getModel().createKey("Categories", {
-			// 		ID: sIdCategoria
-			// 	});
+				var sKey = this.getModel().createKey("Categories", {
+					ID: sIdCategoria
+				});
 
-			// 	this.getView().bindElement({
-			// 		path: "/" + sKey
-			// 	});
+				this.getView().bindElement({
+					path: "/" + sKey
+				});
 
-			// }.bind(this));
+			}.bind(this));
 		}
 
 	});
